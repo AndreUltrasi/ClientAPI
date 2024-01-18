@@ -5,15 +5,9 @@ namespace Core.UseCases.GetClient
 {
     public class GetClient : IGetClient
     {
-        public GetClient()
+        public async Task<Client> Handle(GetClientInput input)
         {
-
-        }
-
-
-        public void Handle(DeleteClientInput input)
-        {
-
+            return (Client)null;
         }
     }
 }
