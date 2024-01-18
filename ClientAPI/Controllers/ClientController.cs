@@ -1,4 +1,5 @@
 using Core.Domain;
+using Core.UseCases.DeleteClient.Boundaries;
 using Core.UseCases.GetClient.Boundaries;
 using Core.UseCases.UpsertClient.Boundaries;
 using Microsoft.AspNetCore.Mvc;

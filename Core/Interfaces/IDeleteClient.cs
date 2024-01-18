@@ -1,4 +1,4 @@
-﻿using Core.UseCases.GetClient.Boundaries;
+﻿using Core.UseCases.DeleteClient.Boundaries;
 
 namespace Core.Domain
 {
