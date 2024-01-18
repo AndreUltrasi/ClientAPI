@@ -1,11 +1,13 @@
-﻿namespace Core.UseCases.GetClient.Boundaries
+﻿using Core.Domain;
+
+namespace Core.UseCases.UpsertClient.Boundaries
 {
     public class UpsertClientInput
     {
-        public UpsertClientInput(string name) { 
-            Name = name;
+        public UpsertClientInput(Client client) {
+            Client = client;
         }
 
-        public string Name { private get; set; }
+        public Client Client { private get; set; }
     }
 }

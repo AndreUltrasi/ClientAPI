@@ -1,5 +1,7 @@
+using Core.Domain;
+using Core.UseCases.DeleteClient.Boundaries;
 using Core.UseCases.GetClient.Boundaries;
-using MediatR;
+using Core.UseCases.UpsertClient.Boundaries;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ClientAPI.Controllers
@@ -8,32 +10,41 @@ namespace ClientAPI.Controllers
     [Route("[controller]")]
     public class ClientController : ControllerBase
     {
-        private readonly ILogger<ClientController> _logger;
-        private readonly IMediator _mediatr;
+        private readonly IGetClient _getClient;
+        private readonly IDeleteClient _deleteClient;
+        private readonly IUpsertClient _upsertClient;
 
-        public ClientController(ILogger<ClientController> logger,
-                                IMediator mediatr)
+        public ClientController(IGetClient getClient,
+                                IDeleteClient deleteClient,
+                                IUpsertClient upsertClient)
         {
-            _logger = logger;
-            _mediatr = mediatr;
+            _getClient = getClient;
+            _deleteClient = deleteClient;
+            _upsertClient = upsertClient;
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> GetClients(GetClientInput input)
+        public async Task<IActionResult> GetClient(string name)
         {
-            await _mediatr.Send(input);
+            var input = new GetClientInput(name);
+            var response = await _getClient.Handle(input);
+            return Ok(response);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteClient(string name)
+        {
+            var input = new DeleteClientInput(name);
+            await _deleteClient.Handle(input);
+            return Ok();
         }
 
         [HttpPost]
-        public IEnumerable<WeatherForecast> DeleteClient(DeleteClientInput input)
+        public async Task<IActionResult> UpsertClient(Client client)
         {
-            await _mediatr.Send(input);
-        }
-
-        [HttpPost]
-        public async IEnumerable<WeatherForecast> UpsertClient(UpsertClientInput input)
-        {
-            await _mediatr.Upsert(input);
+            var input = new UpsertClientInput(client);
+            await _upsertClient.Handle(input);
+            return Ok();
         }
     }
 }

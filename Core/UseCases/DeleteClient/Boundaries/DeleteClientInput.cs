@@ -1,4 +1,4 @@
-﻿namespace Core.UseCases.GetClient.Boundaries
+﻿namespace Core.UseCases.DeleteClient.Boundaries
 {
     public class DeleteClientInput
     {
