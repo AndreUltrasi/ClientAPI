@@ -4,6 +4,7 @@ using Core.UseCases.GetClient.Boundaries;
 using Core.UseCases.UpsertClient.Boundaries;
 using Microsoft.AspNetCore.Mvc;
 
+//É responsável por retornar os status Code dependem do que foi recebido pelo Core
 namespace ClientAPI.Controllers
 {
     [ApiController]
@@ -22,6 +23,20 @@ namespace ClientAPI.Controllers
             _deleteClient = deleteClient;
             _upsertClient = upsertClient;
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetClient(string name)
+        {
+            var input = new GetClientInput(name);
+            var response = await _getClient.Handle(input);
+            if (!response.IsValid)
+            {
+                throw new Exception("Erro 400");
+            };
+
+            return Ok(response);
+        }
+
 
         [HttpGet]
         public async Task<IActionResult> GetClient(string name)
