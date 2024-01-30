@@ -8,6 +8,8 @@ namespace Core.UseCases.GetClient
     {
         public async Task<Client> Handle(GetClientInput input)
         {
+            //https://viacep.com.br/ws/33030250/json/ Usar Refit
+
             //Consultar api de cep, e encontrar endereço, complemente, numero, cidade e estado
             //mapear propriedades e criar um objeto Client com todas as informações
             // dadosCep = consultarApiCep();
