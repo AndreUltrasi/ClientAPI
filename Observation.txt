@@ -1,0 +1,21 @@
+
+
+
+
+
+
+
+
+
+
+
+
+CAIO  
+
+1. o core é aonde fica localizado a parte central e mais interna do código, por ex lá tem os use cases, entities, regras de negocio e a lógica por trás do código em si
+
+2. já a outra camada (infra ou adaptadores) seria a parte da onde fica as controllers que parte de alguns detalhes técnicos de processamento, chamadas de api e conexão com banco de dados 
+
+3. a ultima camada seria a interface com o usuário, aonde através do comando do cliente é feito as requisições de acordo com ele
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

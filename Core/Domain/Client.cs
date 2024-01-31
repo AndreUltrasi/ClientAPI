@@ -2,13 +2,9 @@
 {
     public class Client
     {
-        public Guid Id { get; set; }//Faz por padrão
+        public Guid Id { get; set; }
 
         public bool Active { get; set; }
-
-        public DateTime CreationDate { get; set; }//Faz por padrão pelo Entity
-
-        public DateTime ModificationDate { get; set; }//Faz por padrão pelo Entity
 
         public string Name { get; set; }
 
@@ -18,7 +14,20 @@
 
         public int Gender { get; set; }
 
-        public Guid AdressId { get; set; }//Remover
+        public string Adress { get; set; }
+
+        public string Number { get; set; }
+
+        public string Complement { get; set; }
+
+        public string City { get; set; }
+
+        public string State { get; set; }
+
+        public string Country { get; set; }
+
+        public string Cep { get; set; }
+
 
     }
 }
