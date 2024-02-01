@@ -13,7 +13,6 @@ namespace Core.Domain
         [Column("NUMERO_CONTA"), Required]
         public long AccountCode { get; set; }
 
-
         [Column("ATIVO"), Required]
         public bool Active { get; set; }
 
