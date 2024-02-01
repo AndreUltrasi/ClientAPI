@@ -1,6 +1,6 @@
 GetClient
 (Core)
-
+- Implementar Entity Framework e Migrations utilizar ClientModel como padrão para tabela
 
 UpsertClient
 (Core)
