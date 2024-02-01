@@ -4,6 +4,6 @@ namespace Core.Domain
 {
     public interface IGetClient
     {
-        Task<Client> Handle(GetClientInput input);     // teste
+        Task<Output> Handle(GetClientInput input);
     }
 }
