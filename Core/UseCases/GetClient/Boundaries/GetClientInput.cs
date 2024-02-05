@@ -2,10 +2,10 @@
 {
     public class GetClientInput
     {
-        public GetClientInput(string name) { 
-            Name = name;
+        public GetClientInput(int id) { 
+            AccountCode = id;
         }
 
-        public string Name { get; private set; }
+        public int AccountCode { get; private set; }
     }
 }

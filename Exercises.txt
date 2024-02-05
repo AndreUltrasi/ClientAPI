@@ -1,0 +1,37 @@
+GetClient
+(Core)
+- Implementar Entity Framework e Migrations utilizar ClientModel como padrão para tabela
+
+UpsertClient
+(Core)
+- Criar classe AddressDto para receber propriedades da api de cep
+- Fazer consulta utilizando o "Refit" na api https://viacep.com.br/ws/33030250/json/ utilizando o cep recebido em UpsertClientInput, recebendo os campos relacionados a endereço
+- Criar objeto Client Utilizando parametros recebidos em UpsertClientInput(Gender, Age e etc) e parametros recebidos da api de cep(Address, Number, Complement e etc)
+	*Sugestão: assinatura dele pode ser algo como "public Client MapToDomain(this UpsertClientInput input, AddressDto addressDto)"
+
+- Validar objeto "Client" Criado, verificando se as propriedades estão certas utilizando "FluentValidator", se possível
+Exemplo:
+	* Validar se o PersonType for "Person", e o documento não tiver 11 caracteres, retornar erro (Utilizando FluentValidator depois)
+	* Validar se o PersonType for "Company", e o documento não tiver 14 caracteres, retornar erro (Utilizando FluentValidator depois)
+
+- Realizar chamada em "await _clientRepository.SaveAsync(client)"
+
+
+(Infra)
+- Criar metodo na interface IClientRepository "Task<bool> SaveAsync(Client client)"
+- Em ClientRepository construir método "async Task<bool> SaveAsync(Client client)"
+- Mapear Client para ClientModel
+- Inserir/Atualizar "ClientModel"
+- Após inserir "ClientModel" retornar true se sucesso ou false se falha
+
+
+TODO:
+
+
+var client = MapToInfra(input);
+
+Salvar no banco Client
+var saved = await _repository.SaveAsync(client);
+verifica se foi salvo
+
+Adicionar logs com Serilog

@@ -2,10 +2,10 @@
 {
     public class DeleteClientInput
     {
-        public DeleteClientInput(string name) { 
-            Name = name;
+        public DeleteClientInput(int id) { 
+            Id = id;
         }
 
-        public string Name { get; set; }
+        public int Id { get; set; }
     }
 }

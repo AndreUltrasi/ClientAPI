@@ -8,6 +8,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddUseCases();
+builder.Services.AddSqlServices();
 
 var app = builder.Build();
 
