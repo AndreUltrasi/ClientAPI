@@ -18,7 +18,7 @@ namespace Infra.Repositories
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ClientModel>();
+            modelBuilder.Entity<ClientModel>()
         }
     }
 }
