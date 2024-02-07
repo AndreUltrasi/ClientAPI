@@ -13,6 +13,7 @@ public static class RepositoryExtensions
         );
 
         services.AddScoped<IClientRepository, ClientRepository>();
+
         return services;
     }
 }
