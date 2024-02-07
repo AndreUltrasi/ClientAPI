@@ -25,6 +25,9 @@ Exemplo:
 - Após inserir "ClientModel" retornar true se sucesso ou false se falha
 
 
+(Github)
+- Criar Políticas para as branchs
+
 TODO:
 
 
