@@ -11,10 +11,10 @@ namespace Infra.Repositories
         : base(options)
         { }
 
-        //public async Task<bool> CommitAsync()
-        //{
-        //    return await SaveChangesAsync() > 0;
-        //}
+        public async Task<bool> CommitAsync()
+        {
+            return await SaveChangesAsync() > 0;
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
