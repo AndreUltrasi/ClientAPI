@@ -7,7 +7,7 @@ namespace Core.Domain
     public class ClientModel
     {
         [Key]
-        [Column("ID"), Required]
+        [Column("ID")]
         public Guid Id { get; set; }
 
         [Column("NUMERO_CONTA"), Required]
@@ -35,7 +35,7 @@ namespace Core.Domain
         public string Number { get; set; }
 
         [Column("COMPLEMENTO")]
-        public string Complement { get; set; }
+        public string? Complement { get; set; }
 
         [Column("CIDADE"), Required]
         public string City { get; set; }
@@ -47,6 +47,6 @@ namespace Core.Domain
         public string Country { get; set; }
 
         [Column("CODIGO_POSTAL"), Required]
-        public string Cep { get; set; }
+        public string Cep { get; set; } = string.Empty;
     }
 }

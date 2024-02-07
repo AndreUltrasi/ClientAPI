@@ -1,13 +1,21 @@
+Entity Framework Core
+
+Para criar o container do banco de dados basta executar o comando
+docker compose up
+
+Para criar a migration com a tabelas (será criada a pasta Migrations com o arquivo da Migration Up e Down e com o Snapshot) (Criar no Projeto Infra)
+Add-Migration NomeMigration
+
+Para executar as migrations criadas
+update-database
+
+Deletar/Rollback
+Para parar todos os containers, todas as networks, todos os volumes, todas as imagens e tudo o que está no cache
+docker system prune -a --volumes
 
 
-
-
-
-
-
-
-
-
+Para remover a Migration
+Remove-Migration
 
 
 CAIO  
