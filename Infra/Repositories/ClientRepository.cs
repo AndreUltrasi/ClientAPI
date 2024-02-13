@@ -38,13 +38,23 @@ namespace Infra.Repositories
             return client;
         }
 
-    }
+        }
 
-    public class BlogDataContext : DbContext
+        public class DataContext : DbContext
     {
+
+        public DbSet<ClientModel> ClientModel { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
             => options
-            .UseSqlServer("Server=localhost,1433;Database=Blog;User ID=sa;Password=1q2w3e4r@#$ ; TrustServerCertificate=True");
+            .UseSqlServer("Server=127.0.0.1,1433;Initial Catalog=DATABASE;User ID=sa;Password=SqlServer2019!;TrustServerCertificate=True;");
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<ClientModel>();
+        }
     }
+
+    
 
 }

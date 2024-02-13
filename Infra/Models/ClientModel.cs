@@ -1,10 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Domain
 {
     [Table("CLIENTE")]
-    public class ClientModel
+    public class ClientModel 
     {
         [Key]
         [Column("ID"), Required]
@@ -35,7 +36,7 @@ namespace Core.Domain
         public string Number { get; set; }
 
         [Column("COMPLEMENTO")]
-        public string Complement { get; set; }
+        public string? Complement { get; set; }
 
         [Column("CIDADE"), Required]
         public string City { get; set; }
