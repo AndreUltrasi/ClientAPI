@@ -4,6 +4,6 @@ namespace Core.Domain
 {
     public interface IUpsertClient
     {
-        Task Handle(UpsertClientInput input);
+        Task<Output> Handle(UpsertClientInput input);
     }
 }

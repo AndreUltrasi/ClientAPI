@@ -5,5 +5,7 @@ namespace Core
     public interface IClientRepository
     {
         Task<Client> GetAsync(int id);
+
+        Task<Client> PostAsync(Client client);
     }
 }

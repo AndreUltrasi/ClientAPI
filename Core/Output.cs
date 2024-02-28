@@ -12,13 +12,18 @@
 
         public Output(object result)
         {
-            Result = result;
+            Result = result;        
         }
 
         public void AddErrorMessage(string errorMessage)
         {
             IsValid = false;
             ErrorMessage = errorMessage;
+        }
+
+        public void AddResult(object result) { 
+        
+            Result = result;
         }
     }
 }

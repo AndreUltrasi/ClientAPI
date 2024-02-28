@@ -8,6 +8,6 @@ namespace Core.UseCases.UpsertClient.Boundaries
             Client = client;
         }
 
-        public Client Client { private get; set; }
+        public Client Client { get; private set; }
     }
 }

@@ -38,22 +38,22 @@ namespace Infra.Repositories
             return client;
         }
 
-        }
 
-        public class DataContext : DbContext
-    {
-
-        public DbSet<ClientModel> ClientModel { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder options)
-            => options
-            .UseSqlServer("Server=127.0.0.1,1433;Initial Catalog=DATABASE;User ID=sa;Password=SqlServer2019!;TrustServerCertificate=True;");
-
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        public async Task<Client?> PostAsync(Client client)
         {
-            modelBuilder.Entity<ClientModel>();
+
+
+            var clientModel = new ClientModel();
+
+
+            var asdf = clientModel.MapToDomain();
+
+            return asdf;
         }
+
     }
+
+
 
     
 
