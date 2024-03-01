@@ -1,7 +1,5 @@
 ﻿using Core.Domain.Enums;
 using Core.Dto;
-using Microsoft.Extensions.Options;
-using System.Runtime.CompilerServices;
 
 namespace Core.Domain
 {
@@ -38,7 +36,7 @@ namespace Core.Domain
             Number = number;
             Complement = complement;
             City = city;
-            Country = country ?? "Brasil";
+            Country = country;
             Cep = cep;
             Uf = uf;
             Neighbourhood = neighbourhood;
@@ -63,7 +61,7 @@ namespace Core.Domain
             City = string.IsNullOrWhiteSpace(City) ? addressDto.City : City;
             Neighbourhood = string.IsNullOrWhiteSpace(Neighbourhood) ? addressDto.Neighbourhood : Neighbourhood;
             Uf = string.IsNullOrWhiteSpace(Uf) ? addressDto.Uf : Uf;
-            Country = string.IsNullOrWhiteSpace(Uf) ? "Brasil" : Uf;
+            Country = string.IsNullOrWhiteSpace(Country) ? "Brasil" : Country;
         }
     }
 }

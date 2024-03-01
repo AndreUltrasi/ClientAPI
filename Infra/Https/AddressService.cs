@@ -32,7 +32,7 @@ namespace Core.Domain.Interfaces.Https
                 output.AddResult(addressResponse);
                 return output;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 output.AddErrorMessage("Error on getting Address From Address API");
                 throw;

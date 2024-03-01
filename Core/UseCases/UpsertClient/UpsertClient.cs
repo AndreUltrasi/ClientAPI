@@ -4,7 +4,6 @@ using Core.Dto;
 using Core.Mappers;
 using Core.UseCases.GetClient.Boundaries;
 using Core.UseCases.UpsertClient.Boundaries;
-using FluentValidation;
 
 namespace Core.UseCases.UpsertClient
 {
