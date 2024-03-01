@@ -16,13 +16,22 @@ namespace Core.UseCases.GetClient
         public async Task<Output> Handle(GetClientInput input)
         {
             var output = new Output();
-            if(input.AccountCode <= 0)
+
+            var validationResult = new GetClientInputValidator().Validate(input);
+
+            if (!validationResult.IsValid)
             {
-                output.AddErrorMessage("Não é possível retornar cliente com número de conta menor ou igual a zero !");
+                foreach(var error in validationResult.Errors)
+                {
+                    output.AddErrorMessage(error.ErrorMessage);
+                }
                 return output;
             }
+
             var client = await _clientRepository.GetAsync(input.AccountCode);
-            return new Output(client);
+
+            output.AddResult(client!);
+            return output;
         }
     }
 }

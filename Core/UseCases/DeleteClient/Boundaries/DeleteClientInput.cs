@@ -3,9 +3,9 @@
     public class DeleteClientInput
     {
         public DeleteClientInput(int id) { 
-            Id = id;
+            AccountCode = id;
         }
 
-        public int Id { get; set; }
+        public int AccountCode { get; private set; }
     }
 }

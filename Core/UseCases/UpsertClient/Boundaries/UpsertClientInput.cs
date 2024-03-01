@@ -1,13 +1,14 @@
 ﻿using Core.Domain;
+using Core.ViewModel;
 
 namespace Core.UseCases.UpsertClient.Boundaries
 {
     public class UpsertClientInput
     {
-        public UpsertClientInput(Client client) {
+        public UpsertClientInput(ClientViewModel client) {
             Client = client;
         }
 
-        public Client Client { private get; set; }
+        public ClientViewModel Client { get; private set; }
     }
 }

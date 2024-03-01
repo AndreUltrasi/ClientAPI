@@ -17,7 +17,7 @@ namespace Infra.Repositories
 
         public async Task<Client?> GetAsync(int accountCode)
         {
-            var clientModel = await _context.Clients.AsNoTracking().FirstOrDefaultAsync(s => s.AccountCode == accountCode);
+            var clientModel = await _context.Clients.AsNoTracking().FirstAsync(s => s.AccountCode == accountCode);
 
             if (clientModel == null)
             {
@@ -29,5 +29,13 @@ namespace Infra.Repositories
             return client;
         }
 
+        public async Task UpsertAsync(Client client)
+        {
+            var clientModel = client.MapToModel();
+
+            _context.Clients.Update(clientModel);
+
+            await _context.SaveChangesAsync();
+        }
     }
 }

@@ -4,6 +4,6 @@ namespace Core.Domain
 {
     public interface IDeleteClient
     {
-        Task Handle(DeleteClientInput input);
+        Task<Output> Handle(DeleteClientInput input);
     }
 }
