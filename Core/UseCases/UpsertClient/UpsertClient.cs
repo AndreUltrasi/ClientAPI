@@ -51,6 +51,10 @@ namespace Core.UseCases.UpsertClient
             var response = await _addressService.GetAddressAsync(client.Cep);
             var addressDto = (AddressDto)response.Result;
 
+            _logger.LogInformation("[{Class}] | [{Method}] | Address Got Successfully From Api | CorrelationId: {CorrelationId}, AccountCode: {AccountCode}, Name: {Name}, City: {City}, Uf: {Uf}, Neighbourhood: {Neighbourhood}",
+                nameof(UpsertClient), Helpers.GetCallerName(), input.CorrelationId, input.Client.AccountCode, input.Client.Name, addressDto.City, addressDto.Uf, addressDto.Neighbourhood);
+
+
             client.AddAddressProperties(addressDto);
 
             var upsertStatus = await _clientRepository.UpsertAsync(client);

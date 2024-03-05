@@ -82,5 +82,28 @@ namespace UnitTests.UseCases
             _logger.VerifyLog(s => s.LogError("*Validation Error*"));
             _logger.Invocations.Should().HaveCount(2);
         }
+
+        [Fact(DisplayName = "GetClient >> Should Return Error >> When Exception At Getting Client")]
+        public async Task GetClient_ShouldReturnError_WhenExceptionAtGettingClient()
+        {
+            //arrange
+            var input = new AutoFaker<GetClientInput>()
+                                    .RuleFor(s => s.AccountCode, f => f.Random.Int(1))
+                                    .Generate();
+
+            string errorMessage = "errorMessage";
+
+            _clientRepository.Setup(s => s.GetAsync(It.IsAny<int>())).ThrowsAsync(new Exception(errorMessage));
+
+            //act
+            var exception = await Assert.ThrowsAsync<Exception>(async () => await _getClient.Handle(input));
+
+            //assert
+            exception.Message.Should().Be(errorMessage);
+
+            _logger.VerifyLog(s => s.LogInformation("*UseCase Started*"));
+
+            _logger.Invocations.Should().HaveCount(1);
+        }
     }
 }
