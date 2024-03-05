@@ -59,6 +59,8 @@ namespace Core.UseCases.UpsertClient
             {
                 _logger.LogInformation("[{Class}] | [{Method}] | Client Was Updated Successfully | CorrelationId: {CorrelationId}, AccountCode: {AccountCode}, Name: {Name}",
                     nameof(UpsertClient), Helpers.GetCallerName(), input.CorrelationId, input.Client.AccountCode, input.Client.Name);
+                output.AddResult(client);
+                return output;
             }
 
             _logger.LogInformation("[{Class}] | [{Method}] | Client Was Inserted Successfully | CorrelationId: {CorrelationId}, AccountCode: {AccountCode}, Name: {Name}",

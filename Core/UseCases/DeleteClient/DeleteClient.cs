@@ -43,6 +43,8 @@ namespace Core.UseCases.DeleteClient
             {
                 _logger.LogInformation("[{Class}] | [{Method}] | Client Was Already Disabled | CorrelationId: {CorrelationId}, AccountCode: {AccountCode}",
                     nameof(DeleteClient), Helpers.GetCallerName(), input.CorrelationId, input.AccountCode);
+
+                return output;
             }
 
             _logger.LogInformation("[{Class}] | [{Method}] | Client Was Disabled Successfully | CorrelationId: {CorrelationId}, AccountCode: {AccountCode}",
