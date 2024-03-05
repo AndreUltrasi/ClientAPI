@@ -1,4 +1,4 @@
-using Core.Domain;
+using Core.Interfaces.UseCases;
 using Core.UseCases.DeleteClient.Boundaries;
 using Core.UseCases.GetClient.Boundaries;
 using Core.UseCases.UpsertClient.Boundaries;
@@ -26,12 +26,12 @@ namespace ClientAPI.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetClient(int accountCode)
+        public async Task<IActionResult> GetClient(Guid correlationId, int accountCode)
         {
-            var input = new GetClientInput(accountCode);
+            var input = new GetClientInput(correlationId, accountCode);
             var response = await _getClient.Handle(input);
             if(!response.IsValid)
-                return BadRequest(response.ErrorMessage);
+                return BadRequest(response.ErrorMessages);
 
             if(response.Result == null)
                 return NoContent();
@@ -40,12 +40,12 @@ namespace ClientAPI.Controllers
 
         }
         [HttpDelete]
-        public async Task<IActionResult> DeleteClient(int accountCode)
+        public async Task<IActionResult> DeleteClient(Guid correlationId, int accountCode)
         {
-            var input = new DeleteClientInput(accountCode);
+            var input = new DeleteClientInput(correlationId, accountCode);
             var response = await _deleteClient.Handle(input);
             if (!response.IsValid)
-                return BadRequest(response.ErrorMessage);
+                return BadRequest(response.ErrorMessages);
 
             if (response.Result == null)
                 return NoContent();
@@ -54,12 +54,12 @@ namespace ClientAPI.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> UpsertClient(ClientViewModel clientViewModel)
+        public async Task<IActionResult> UpsertClient(Guid correlationId, ClientViewModel clientViewModel)
         {
-            var input = new UpsertClientInput(clientViewModel);
+            var input = new UpsertClientInput(correlationId, clientViewModel);
             var response = await _upsertClient.Handle(input);
             if (!response.IsValid)
-                return BadRequest(response.ErrorMessage);
+                return BadRequest(response.ErrorMessages);
 
             return Ok(response.Result);
         }

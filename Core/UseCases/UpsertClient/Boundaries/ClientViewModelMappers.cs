@@ -7,7 +7,7 @@ namespace Core.Mappers
     {
         public static Client MapToDomain(this ClientViewModel clientViewModel)
         {
-            return new Client(clientViewModel.AccountCode, clientViewModel.Active, clientViewModel.Name, clientViewModel.PersonType, clientViewModel.Age, clientViewModel.Gender, 
+            return new Client(clientViewModel.AccountCode, clientViewModel.Name, clientViewModel.PersonType, clientViewModel.Age, clientViewModel.Gender, 
                               clientViewModel.Address, clientViewModel.Number, clientViewModel.Complement, clientViewModel.City, clientViewModel.Country,
                               clientViewModel.Cep, clientViewModel.Neighbourhood, clientViewModel.Uf);
         }

@@ -1,4 +1,4 @@
-using Core.Domain;
+using Core.Interfaces.UseCases;
 using Core.UseCases.DeleteClient;
 using Core.UseCases.GetClient;
 using Core.UseCases.UpsertClient;

@@ -2,10 +2,13 @@
 {
     public class GetClientInput
     {
-        public GetClientInput(int id) { 
+        public GetClientInput(Guid correlationId,
+                              int id) { 
             AccountCode = id;
+            CorrelationId = correlationId;
         }
 
+        public Guid CorrelationId { get; private set; }
         public int AccountCode { get; private set; }
     }
 }

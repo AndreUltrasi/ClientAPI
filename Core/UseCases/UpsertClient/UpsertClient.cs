@@ -1,9 +1,12 @@
-﻿using Core.Domain;
+﻿using Core.Domain.Enums;
 using Core.Domain.Interfaces.Https;
 using Core.Dto;
+using Core.Extensions;
+using Core.Interfaces.UseCases;
 using Core.Mappers;
 using Core.UseCases.GetClient.Boundaries;
 using Core.UseCases.UpsertClient.Boundaries;
+using Microsoft.Extensions.Logging;
 
 namespace Core.UseCases.UpsertClient
 {
@@ -11,16 +14,22 @@ namespace Core.UseCases.UpsertClient
     {
         private readonly IClientRepository _clientRepository;
         private readonly IAddressService _addressService;
+        private readonly ILogger<UpsertClient> _logger;
 
         public UpsertClient(IClientRepository clientRepository,
-                            IAddressService addressService)
+                            IAddressService addressService,
+                            ILogger<UpsertClient> logger)
         {
             _clientRepository = clientRepository;
             _addressService = addressService;
+            _logger = logger;
         }
 
         public async Task<Output> Handle(UpsertClientInput input)
         {
+            _logger.LogInformation("[{Class}] | [{Method}] | UseCase Started | CorrelationId: {CorrelationId}, AccountCode: {AccountCode}, Name: {Name}",
+                nameof(UpsertClient), Helpers.GetCallerName(), input.CorrelationId, input.Client.AccountCode, input.Client.Name);
+
             var output = new Output();
 
             var validationResult = new UpsertClientInputValidator().Validate(input);
@@ -29,6 +38,9 @@ namespace Core.UseCases.UpsertClient
             {
                 foreach (var error in validationResult.Errors)
                 {
+                    _logger.LogError("[{Class}] | [{Method}] | Validation Error | PropertyName: {PropertyName}, ErrorCode: {ErrorCode}, CorrelationId: {CorrelationId}, AccountCode: {AccountCode}, Name: {Name}",
+                        nameof(UpsertClient), Helpers.GetCallerName(), error.PropertyName, error.ErrorCode, input.CorrelationId, input.Client.AccountCode, input.Client.Name);
+
                     output.AddErrorMessage(error.ErrorMessage);
                 }
                 return output;
@@ -41,7 +53,17 @@ namespace Core.UseCases.UpsertClient
 
             client.AddAddressProperties(addressDto);
 
-            await _clientRepository.UpsertAsync(client);
+            var upsertStatus = await _clientRepository.UpsertAsync(client);
+
+            if (upsertStatus == UpsertStatus.Updated)
+            {
+                _logger.LogInformation("[{Class}] | [{Method}] | Client Was Updated Successfully | CorrelationId: {CorrelationId}, AccountCode: {AccountCode}, Name: {Name}",
+                    nameof(UpsertClient), Helpers.GetCallerName(), input.CorrelationId, input.Client.AccountCode, input.Client.Name);
+            }
+
+            _logger.LogInformation("[{Class}] | [{Method}] | Client Was Inserted Successfully | CorrelationId: {CorrelationId}, AccountCode: {AccountCode}, Name: {Name}",
+                    nameof(UpsertClient), Helpers.GetCallerName(), input.CorrelationId, input.Client.AccountCode, input.Client.Name);
+
             output.AddResult(client);
             return output;
         }

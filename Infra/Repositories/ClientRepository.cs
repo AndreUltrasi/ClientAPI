@@ -1,5 +1,6 @@
 ﻿using Core;
 using Core.Domain;
+using Core.Domain.Enums;
 using Infra.Mappers;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,13 +16,13 @@ namespace Infra.Repositories
             _context = context;
         }
 
-        public async Task<Client?> GetAsync(int accountCode)
+        public async Task<Client> GetAsync(int accountCode)
         {
-            var clientModel = await _context.Clients.AsNoTracking().FirstAsync(s => s.AccountCode == accountCode);
+            var clientModel = await _context.Clients.AsNoTracking().FirstOrDefaultAsync(s => s.AccountCode == accountCode);
 
             if (clientModel == null)
             {
-                return null;
+                return null!;
             }
 
             var client = clientModel.MapToDomain();
@@ -29,13 +30,40 @@ namespace Infra.Repositories
             return client;
         }
 
-        public async Task UpsertAsync(Client client)
+        public async Task<UpsertStatus> UpsertAsync(Client client)
         {
+            var clientStatus = UpsertStatus.Inserted;
+            if (await _context.Clients.AnyAsync(s => s.AccountCode == client.AccountCode))
+            {
+                clientStatus = UpsertStatus.Updated;
+            };
+
             var clientModel = client.MapToModel();
 
             _context.Clients.Update(clientModel);
 
             await _context.SaveChangesAsync();
+
+            return clientStatus;
+        }
+
+        public async Task<DeleteStatus> DeleteAsync(int accountCode)
+        {
+            var clientModel = _context.Clients.FirstOrDefault(s => s.AccountCode == accountCode);
+
+            if(clientModel == null)
+                throw new InvalidOperationException("Não Existe Cliente Com Este AccountCode");
+
+            if (!clientModel.Active)
+                return DeleteStatus.AlreadyDisabled;
+
+            clientModel.Active = false;
+
+            _context.Clients.Update(clientModel);
+
+            await _context.SaveChangesAsync();
+
+            return DeleteStatus.Disabled;
         }
     }
 }

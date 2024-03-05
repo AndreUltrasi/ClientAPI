@@ -1,4 +1,6 @@
 using ClientAPI.Extensions;
+using Serilog;
+using Serilog.Events;
 using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -16,6 +18,8 @@ builder.Services.AddUseCases();
 builder.Services.AddRepositories(configuration);
 builder.Services.AddValidators();
 builder.Services.AddHttpsServices();
+builder.Host.UseSerilog((ctx, lc) => lc
+    .WriteTo.Console(LogEventLevel.Debug));
 
 var app = builder.Build();
 

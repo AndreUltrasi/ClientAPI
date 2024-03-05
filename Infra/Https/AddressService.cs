@@ -1,4 +1,7 @@
-﻿using Polly;
+﻿using Core.Extensions;
+using Core.UseCases.UpsertClient;
+using Microsoft.Extensions.Logging;
+using Polly;
 using Polly.Retry;
 using Refit;
 using System.Net;
@@ -7,11 +10,14 @@ namespace Core.Domain.Interfaces.Https
 {
     public class AddressService : IAddressService
     {
+        private readonly ILogger<AddressService> _logger;
         private readonly IHttpAddressService _httpAddressService;
         private readonly AsyncRetryPolicy _retryPolicy;
         private readonly IEnumerable<HttpStatusCode> errorsStatusCode = new List<HttpStatusCode>() { HttpStatusCode.GatewayTimeout, HttpStatusCode.RequestTimeout, HttpStatusCode.BadGateway, HttpStatusCode.ServiceUnavailable };
 
-        public AddressService(IHttpAddressService httpAddressService) { 
+        public AddressService(IHttpAddressService httpAddressService,
+                              ILogger<AddressService> logger) {
+            _logger = logger;
             _httpAddressService = httpAddressService;
             _retryPolicy = Policy
                 .Handle<ApiException>(e => errorsStatusCode.Contains(e.StatusCode))
@@ -32,8 +38,10 @@ namespace Core.Domain.Interfaces.Https
                 output.AddResult(addressResponse);
                 return output;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                _logger.LogError("[{Class}] | [{Method}] | Error On Getting Address From Address API | ErrorMessage: {ErrorMessage}, InnerException: {InnerException}, Cep: {Cep}",
+                    nameof(UpsertClient), Helpers.GetCallerName(), ex.Message, ex.InnerException, cep);
                 output.AddErrorMessage("Error on getting Address From Address API");
                 throw;
             }

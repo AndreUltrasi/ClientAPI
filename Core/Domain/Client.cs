@@ -24,10 +24,9 @@ namespace Core.Domain
         {
         }
 
-        public Client(long accountCode, bool active, string name, PersonType personType, int age, Gender gender, string address, string number, string? complement, string city, string country, string cep, string neighbourhood, string uf)
+        public Client(long accountCode, string name, PersonType personType, int age, Gender gender, string address, string number, string? complement, string city, string country, string cep, string neighbourhood, string uf)
         {
             AccountCode = accountCode;
-            Active = active;
             Name = name;
             PersonType = personType;
             Age = age;

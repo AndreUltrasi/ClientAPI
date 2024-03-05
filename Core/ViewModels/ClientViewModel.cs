@@ -7,8 +7,6 @@ namespace Core.ViewModel
     {
         public long AccountCode { get; set; }
 
-        [DefaultValue(true)]
-        public bool Active { get; set; }
         [DefaultValue("")]
         public string Name { get; set; } = string.Empty;
         public PersonType PersonType { get; set; }

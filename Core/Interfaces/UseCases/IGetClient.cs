@@ -1,6 +1,6 @@
 ﻿using Core.UseCases.GetClient.Boundaries;
 
-namespace Core.Domain
+namespace Core.Interfaces.UseCases
 {
     public interface IGetClient
     {

@@ -7,7 +7,7 @@ namespace Infra.Mappers
     {
         public static Client MapToDomain(this ClientModel clientModel)
         {
-            var client = new Client(clientModel.AccountCode, clientModel.Active, clientModel.Name, clientModel.PersonType, clientModel.Age, clientModel.Gender, clientModel.Adress, clientModel.Number,
+            var client = new Client(clientModel.AccountCode, clientModel.Name, clientModel.PersonType, clientModel.Age, clientModel.Gender, clientModel.Adress, clientModel.Number,
                                     clientModel.Complement, clientModel.City, clientModel.Country, clientModel.Cep, clientModel.Neighbourhood, clientModel.Uf);
 
             return client;
