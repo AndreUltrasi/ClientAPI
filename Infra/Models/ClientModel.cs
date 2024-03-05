@@ -35,7 +35,7 @@ namespace Core.Domain
         public string Number { get; set; }
 
         [Column("COMPLEMENTO")]
-        public string Complement { get; set; }
+        public string? Complement { get; set; }
 
         [Column("CIDADE"), Required]
         public string City { get; set; }
