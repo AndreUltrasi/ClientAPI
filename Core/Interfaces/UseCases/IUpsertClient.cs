@@ -1,9 +1,9 @@
 ﻿using Core.UseCases.UpsertClient.Boundaries;
 
-namespace Core.Domain
+namespace Core.Interfaces.UseCases
 {
     public interface IUpsertClient
     {
-        Task Handle(UpsertClientInput input);
+        Task<Output> Handle(UpsertClientInput input);
     }
 }

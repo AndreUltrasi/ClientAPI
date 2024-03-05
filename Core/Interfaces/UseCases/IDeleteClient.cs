@@ -1,9 +1,9 @@
 ﻿using Core.UseCases.DeleteClient.Boundaries;
 
-namespace Core.Domain
+namespace Core.Interfaces.UseCases
 {
     public interface IDeleteClient
     {
-        Task Handle(DeleteClientInput input);
+        Task<Output> Handle(DeleteClientInput input);
     }
 }

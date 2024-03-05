@@ -1,4 +1,7 @@
 using ClientAPI.Extensions;
+using Serilog;
+using Serilog.Events;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,11 +11,15 @@ IConfiguration configuration = new ConfigurationBuilder()
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers().AddJsonOptions(options => options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddUseCases();
 builder.Services.AddRepositories(configuration);
+builder.Services.AddValidators();
+builder.Services.AddHttpsServices();
+builder.Host.UseSerilog((ctx, lc) => lc
+    .WriteTo.Console(LogEventLevel.Debug));
 
 var app = builder.Build();
 

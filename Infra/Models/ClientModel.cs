@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Core.Domain.Enums;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Core.Domain
@@ -17,36 +18,39 @@ namespace Core.Domain
         public bool Active { get; set; }
 
         [Column("NOME"), Required]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
 
         [Column("TIPO_PESSOA"), Required]
         public PersonType PersonType { get; set; }
 
         [Column("IDADE"), Required]
-        public short Age { get; set; }
+        public int Age { get; set; }
 
         [Column("GENERO"), Required]
         public Gender Gender { get; set; }
 
         [Column("ENDERECO"), Required]
-        public string Adress { get; set; }
+        public string Adress { get; set; } = string.Empty;
 
         [Column("NUMERO"), Required]
-        public string Number { get; set; }
+        public string Number { get; set; } = string.Empty;
 
         [Column("COMPLEMENTO")]
         public string? Complement { get; set; }
 
         [Column("CIDADE"), Required]
-        public string City { get; set; }
-
-        [Column("ESTADO"), Required]
-        public string State { get; set; }
+        public string City { get; set; } = string.Empty;
 
         [Column("PAIS"), Required]
-        public string Country { get; set; }
+        public string Country { get; set; } = string.Empty;
 
         [Column("CODIGO_POSTAL"), Required]
-        public string Cep { get; set; }
+        public string Cep { get; set; } = string.Empty;
+
+        [Column("BAIRRO"), Required]
+        public string Neighbourhood { get; set; } = string.Empty;
+
+        [Column("UF"), Required]
+        public string Uf { get; set; } = string.Empty;
     }
 }

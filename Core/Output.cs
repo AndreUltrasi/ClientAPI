@@ -3,7 +3,7 @@
     public class Output
     {
         public bool IsValid { get; private set; } = true;
-        public string ErrorMessage { get; private set; } = string.Empty;
+        public List<string> ErrorMessages { get; private set; } = new List<string>();
         public object Result { get; private set; } = null!;
 
         public Output()
@@ -18,7 +18,12 @@
         public void AddErrorMessage(string errorMessage)
         {
             IsValid = false;
-            ErrorMessage = errorMessage;
+            ErrorMessages.Add(errorMessage);
+        }
+
+        public void AddResult(object result)
+        {
+            Result = result;
         }
     }
 }
