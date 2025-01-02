@@ -21,7 +21,7 @@ namespace ClientAPI.Controllers
                                 IUpsertClient upsertClient)
         {
             _getClient = getClient;
-            _deleteClient = deleteClient;
+            _deleteClient = deleteClient;  
             _upsertClient = upsertClient;
         }
 
