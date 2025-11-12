@@ -1,0 +1,49 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run GetClient Unit Tests",
+			"type": "shell",
+			"command": "dotnet test tests\\UnitTests\\UnitTests.csproj --filter \"FullyQualifiedName~GetClientUnitTests\"",
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "Build UnitTests",
+			"type": "shell",
+			"command": "dotnet build tests\\UnitTests\\UnitTests.csproj",
+			"problemMatcher": [
+				"$msCompile"
+			],
+			"group": "build"
+		},
+		{
+			"label": "Run GetClient Unit Tests",
+			"type": "shell",
+			"command": "dotnet test tests\\UnitTests\\UnitTests.csproj --filter \"FullyQualifiedName~GetClientUnitTests\" --verbosity normal",
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "Run GetClient Tests Detailed",
+			"type": "shell",
+			"command": "dotnet test tests\\UnitTests\\UnitTests.csproj --filter \"FullyQualifiedName~GetClientUnitTests\" --logger \"console;verbosity=detailed\"",
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "Run GetClient Unit Tests",
+			"type": "shell",
+			"command": "dotnet test tests\\UnitTests\\UnitTests.csproj --filter \"FullyQualifiedName~GetClientUnitTests\" --verbosity normal",
+			"problemMatcher": [],
+			"group": "test"
+		},
+		{
+			"label": "Run GetClient Tests With Diagnostic",
+			"type": "shell",
+			"command": "dotnet test tests\\UnitTests\\UnitTests.csproj --filter \"FullyQualifiedName~GetClientUnitTests\" --logger:\"console;verbosity=detailed\" > test_output.txt 2>&1 & type test_output.txt",
+			"problemMatcher": [],
+			"group": "test"
+		}
+	]
+}

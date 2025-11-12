@@ -1,0 +1,185 @@
+Applying Cmder VSCode settings from 'C:\cmder\bin\vscode_init_args.cmd'...
+Applying Cmder VSCode settings is complete!
+  Determinando os projetos a serem restaurados...
+  Todos os projetos estão atualizados para restauração.
+  Core -> C:\Users\Andre\source\repos\ClienteAPI\src\Core\bin\Debug\net8.0\Core.dll
+  Infra -> C:\Users\Andre\source\repos\ClienteAPI\src\Infra\bin\Debug\net8.0\Infra.dll
+  UnitTests -> C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\bin\Debug\net8.0\UnitTests.dll
+Execução de teste para C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\bin\Debug\net8.0\UnitTests.dll (.NETCoreApp,Version=v8.0)
+Versão do VSTest 18.0.1 (x64)
+
+Iniciando execução de teste, espere...
+1 arquivos de teste no total corresponderam ao padrão especificado.
+C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\bin\Debug\net8.0\UnitTests.dll
+[xUnit.net 00:00:00.00] xUnit.net VSTest Adapter v2.4.5+1caef2f33e (64-bit .NET 8.0.22)
+[xUnit.net 00:00:00.44]   Discovering: UnitTests
+[xUnit.net 00:00:00.47]   Discovered:  UnitTests
+[xUnit.net 00:00:00.47]   Starting:    UnitTests
+[xUnit.net 00:00:00.60]     GetClient >> Should Return Error >> When AccountCode Is Invalid(invalidAccountCode: -2147483648) [FAIL]
+[xUnit.net 00:00:00.60]       Expected output.ErrorMessages {"'Account Code' deve ser superior a '0'."} to contain "'Account Code' must be greater than '0'.".
+[xUnit.net 00:00:00.60]       Stack Trace:
+[xUnit.net 00:00:00.60]            at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+[xUnit.net 00:00:00.60]            at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+[xUnit.net 00:00:00.60]            at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+[xUnit.net 00:00:00.60]            at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+[xUnit.net 00:00:00.60]            at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+[xUnit.net 00:00:00.60]            at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+[xUnit.net 00:00:00.60]            at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(T expected, String because, Object[] becauseArgs)
+[xUnit.net 00:00:00.60]         C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\UseCases\GetClientUnitTests.cs(215,0): at UnitTests.UseCases.GetClientUnitTests.GetClient_ShouldReturnError_WhenAccountCodeIsInvalid(Int32 invalidAccountCode)
+[xUnit.net 00:00:00.60]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:00.61]     GetClient >> Should Return Error >> When AccountCode Is Invalid(invalidAccountCode: -999999) [FAIL]
+[xUnit.net 00:00:00.61]       Expected output.ErrorMessages {"'Account Code' deve ser superior a '0'."} to contain "'Account Code' must be greater than '0'.".
+[xUnit.net 00:00:00.61]       Stack Trace:
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(T expected, String because, Object[] becauseArgs)
+[xUnit.net 00:00:00.61]         C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\UseCases\GetClientUnitTests.cs(215,0): at UnitTests.UseCases.GetClientUnitTests.GetClient_ShouldReturnError_WhenAccountCodeIsInvalid(Int32 invalidAccountCode)
+[xUnit.net 00:00:00.61]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:00.61]     GetClient >> Should Return Error >> When AccountCode Is Invalid(invalidAccountCode: -100) [FAIL]
+[xUnit.net 00:00:00.61]       Expected output.ErrorMessages {"'Account Code' deve ser superior a '0'."} to contain "'Account Code' must be greater than '0'.".
+[xUnit.net 00:00:00.61]       Stack Trace:
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(T expected, String because, Object[] becauseArgs)
+[xUnit.net 00:00:00.61]         C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\UseCases\GetClientUnitTests.cs(215,0): at UnitTests.UseCases.GetClientUnitTests.GetClient_ShouldReturnError_WhenAccountCodeIsInvalid(Int32 invalidAccountCode)
+[xUnit.net 00:00:00.61]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:00.61]     GetClient >> Should Return Error >> When AccountCode Is Invalid(invalidAccountCode: -1) [FAIL]
+[xUnit.net 00:00:00.61]       Expected output.ErrorMessages {"'Account Code' deve ser superior a '0'."} to contain "'Account Code' must be greater than '0'.".
+[xUnit.net 00:00:00.61]       Stack Trace:
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+[xUnit.net 00:00:00.61]            at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(T expected, String because, Object[] becauseArgs)
+[xUnit.net 00:00:00.61]         C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\UseCases\GetClientUnitTests.cs(215,0): at UnitTests.UseCases.GetClientUnitTests.GetClient_ShouldReturnError_WhenAccountCodeIsInvalid(Int32 invalidAccountCode)
+[xUnit.net 00:00:00.61]         --- End of stack trace from previous location ---
+  Com falha GetClient >> Should Return Error >> When AccountCode Is Invalid(invalidAccountCode: -2147483648) [95 ms]
+  Mensagem de erro:
+   Expected output.ErrorMessages {"'Account Code' deve ser superior a '0'."} to contain "'Account Code' must be greater than '0'.".
+  Rastreamento de pilha:
+     at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+   at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+   at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+   at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(T expected, String because, Object[] becauseArgs)
+   at UnitTests.UseCases.GetClientUnitTests.GetClient_ShouldReturnError_WhenAccountCodeIsInvalid(Int32 invalidAccountCode) in C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\UseCases\GetClientUnitTests.cs:line 215
+--- End of stack trace from previous location ---
+  Com falha GetClient >> Should Return Error >> When AccountCode Is Invalid(invalidAccountCode: -999999) [2 ms]
+  Mensagem de erro:
+   Expected output.ErrorMessages {"'Account Code' deve ser superior a '0'."} to contain "'Account Code' must be greater than '0'.".
+  Rastreamento de pilha:
+     at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+   at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+   at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+   at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(T expected, String because, Object[] becauseArgs)
+   at UnitTests.UseCases.GetClientUnitTests.GetClient_ShouldReturnError_WhenAccountCodeIsInvalid(Int32 invalidAccountCode) in C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\UseCases\GetClientUnitTests.cs:line 215
+--- End of stack trace from previous location ---
+  Com falha GetClient >> Should Return Error >> When AccountCode Is Invalid(invalidAccountCode: -100) [< 1 ms]
+  Mensagem de erro:
+   Expected output.ErrorMessages {"'Account Code' deve ser superior a '0'."} to contain "'Account Code' must be greater than '0'.".
+  Rastreamento de pilha:
+     at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+   at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+   at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+   at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(T expected, String because, Object[] becauseArgs)
+   at UnitTests.UseCases.GetClientUnitTests.GetClient_ShouldReturnError_WhenAccountCodeIsInvalid(Int32 invalidAccountCode) in C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\UseCases\GetClientUnitTests.cs:line 215
+--- End of stack trace from previous location ---
+  Com falha GetClient >> Should Return Error >> When AccountCode Is Invalid(invalidAccountCode: -1) [< 1 ms]
+  Mensagem de erro:
+   Expected output.ErrorMessages {"'Account Code' deve ser superior a '0'."} to contain "'Account Code' must be greater than '0'.".
+  Rastreamento de pilha:
+     at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+   at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+   at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+   at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(T expected, String because, Object[] becauseArgs)
+   at UnitTests.UseCases.GetClientUnitTests.GetClient_ShouldReturnError_WhenAccountCodeIsInvalid(Int32 invalidAccountCode) in C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\UseCases\GetClientUnitTests.cs:line 215
+--- End of stack trace from previous location ---
+  Aprovado GetClient >> Should Return Success >> When Getting Client [75 ms]
+  Aprovado GetClient >> Should Return Error >> When Exception At Getting Client [18 ms]
+  Aprovado GetClient >> Should Not Call Repository >> When Validation Fails [< 1 ms]
+  Aprovado GetClient >> Should Return Success >> When AccountCode Is Valid(validAccountCode: 100) [4 ms]
+  Aprovado GetClient >> Should Return Success >> When AccountCode Is Valid(validAccountCode: 2147483647) [5 ms]
+[xUnit.net 00:00:00.75]     GetClient >> Should Return Error >> When AccountCode Is Zero [FAIL]
+[xUnit.net 00:00:00.75]       Expected output.ErrorMessages {"'Account Code' deve ser superior a '0'."} to contain "'Account Code' must be greater than '0'.".
+[xUnit.net 00:00:00.75]       Stack Trace:
+[xUnit.net 00:00:00.75]            at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+[xUnit.net 00:00:00.75]            at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+[xUnit.net 00:00:00.75]            at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+[xUnit.net 00:00:00.75]            at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+[xUnit.net 00:00:00.75]            at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+[xUnit.net 00:00:00.75]            at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+[xUnit.net 00:00:00.75]            at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(T expected, String because, Object[] becauseArgs)
+[xUnit.net 00:00:00.75]         C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\UseCases\GetClientUnitTests.cs(121,0): at UnitTests.UseCases.GetClientUnitTests.GetClient_ShouldReturnError_WhenAccountCodeIsZero()
+[xUnit.net 00:00:00.75]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:00.76]     GetClient >> Should Return Error >> When AccountCode Is Lesser Than One [FAIL]
+[xUnit.net 00:00:00.76]       Expected output.ErrorMessages {"'Account Code' deve ser superior a '0'."} to contain "'Account Code' must be greater than '0'.".
+[xUnit.net 00:00:00.76]       Stack Trace:
+[xUnit.net 00:00:00.76]            at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+[xUnit.net 00:00:00.76]            at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+[xUnit.net 00:00:00.76]            at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+[xUnit.net 00:00:00.76]            at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+[xUnit.net 00:00:00.76]            at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+[xUnit.net 00:00:00.76]            at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+[xUnit.net 00:00:00.76]            at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(T expected, String because, Object[] becauseArgs)
+[xUnit.net 00:00:00.76]         C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\UseCases\GetClientUnitTests.cs(75,0): at UnitTests.UseCases.GetClientUnitTests.GetClient_ShouldReturnError_WhenAccountCodeIsLesserThanOne()
+[xUnit.net 00:00:00.76]         --- End of stack trace from previous location ---
+[xUnit.net 00:00:00.76]   Finished:    UnitTests
+  Aprovado GetClient >> Should Return Success >> When AccountCode Is Valid(validAccountCode: 999999) [2 ms]
+  Aprovado GetClient >> Should Return Success >> When AccountCode Is Valid(validAccountCode: 1) [2 ms]
+  Aprovado GetClient >> Should Call Repository >> With Correct AccountCode [2 ms]
+  Aprovado GetClient >> Should Have Valid Output Structure >> When Getting Client [6 ms]
+  Aprovado GetClient >> Should Return Client With Same Properties >> When Getting Client [11 ms]
+  Aprovado GetClient >> Should Log Correctly >> When Getting Client Successfully [13 ms]
+  Com falha GetClient >> Should Return Error >> When AccountCode Is Zero [1 ms]
+  Mensagem de erro:
+   Expected output.ErrorMessages {"'Account Code' deve ser superior a '0'."} to contain "'Account Code' must be greater than '0'.".
+  Rastreamento de pilha:
+     at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+   at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+   at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+   at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(T expected, String because, Object[] becauseArgs)
+   at UnitTests.UseCases.GetClientUnitTests.GetClient_ShouldReturnError_WhenAccountCodeIsZero() in C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\UseCases\GetClientUnitTests.cs:line 121
+--- End of stack trace from previous location ---
+  Com falha GetClient >> Should Return Error >> When AccountCode Is Lesser Than One [7 ms]
+  Mensagem de erro:
+   Expected output.ErrorMessages {"'Account Code' deve ser superior a '0'."} to contain "'Account Code' must be greater than '0'.".
+  Rastreamento de pilha:
+     at FluentAssertions.Execution.XUnit2TestFramework.Throw(String message)
+   at FluentAssertions.Execution.TestFrameworkProvider.Throw(String message)
+   at FluentAssertions.Execution.DefaultAssertionStrategy.HandleFailure(String message)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(Func`1 failReasonFunc)
+   at FluentAssertions.Execution.AssertionScope.FailWith(String message, Object[] args)
+   at FluentAssertions.Collections.GenericCollectionAssertions`3.Contain(T expected, String because, Object[] becauseArgs)
+   at UnitTests.UseCases.GetClientUnitTests.GetClient_ShouldReturnError_WhenAccountCodeIsLesserThanOne() in C:\Users\Andre\source\repos\ClienteAPI\tests\UnitTests\UseCases\GetClientUnitTests.cs:line 75
+--- End of stack trace from previous location ---
+
+Falha na Execução de Teste.
+Total de testes: 17
+     Aprovados: 11
+     Com falha: 6
+Tempo total: 1,1286 Segundos
