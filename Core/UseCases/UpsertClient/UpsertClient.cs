@@ -24,7 +24,7 @@ namespace Core.UseCases.UpsertClient
             _addressService = addressService;
             _logger = logger;
         }
-
+        
         public async Task<Output> Handle(UpsertClientInput input)
         {
             _logger.LogInformation("[{Class}] | [{Method}] | UseCase Started | CorrelationId: {CorrelationId}, AccountCode: {AccountCode}, Name: {Name}",
